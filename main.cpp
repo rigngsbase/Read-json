@@ -6,14 +6,14 @@
 
 using json = nlohmann::json;
 
-double distance(std::vector<std::vector<double>> vec1) {
+double distance(std::vector<double> vec1) {
     //std::vector<double> min ;
     double temp = 0;
     double total = 0;
     //double dist;
     auto dataSize = std::size(vec1);
     for (int i = 0; i < dataSize; i++) {
-        temp = (std::abs(vec1[i][0] - 0.35971248));
+        temp = (std::abs(vec1[i] - 0.35971248));
         //return std::abs(v2[i] - v1[i]);
         temp = pow(temp, 2);
         total += temp;
@@ -35,7 +35,7 @@ int main()
         auto dataSize = std::size(x.value());
 
         for (int i = 0; i < dataSize; i++) {
-            std::vector<std::vector<double>> vec1 = x.value()[i] ;
+            std::vector<double> vec1 = x.value()[i] ;
             double res = distance(vec1);
             /*std::cout << i << " " << res << std::endl;*/
             if (res <= min_dis) {
